@@ -13,9 +13,9 @@
     }
     form{
         background-color: white;
-        max-width: 500px;
+        max-width: 400px;
         width: 70%;
-        padding: 20px;
+        padding: 40px;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -28,26 +28,41 @@
     }
     form input[type=text],
     form input[type=password]{
-        width: 100%;
+        width: 80%;
         height: 45px;
         border:1px solid #ccc;
         padding-left: 10px;
-        margin: 10px 0;
+        margin: 10px 30px;
     }
 
-    form input[type=submit]{
-        width: 100%;
-        height: 40px;
+    form input[id=att]{
+        width: 60%;
+        height: 30px;
         cursor: pointer;
         background-color: #5F7C8A;
         color: white;
         border: 0;
         border-radius: 20px;
         transition: 1s;
+        float: left;
+    }
+    form input[id=sair]{
+        width: 30%;
+        height: 30px;
+        cursor: pointer;
+        background-color: #d61e17;
+        color: white;
+        border: 0;
+        border-radius: 20px;
+        transition: 1s;
+        float: right;
     }
 
-    form input[type=submit]:hover{
+    form input[id=att]:hover{
         background-color: #4A5F6A;
+    }
+    form input[id=sair]:hover{
+        background-color: #b10b0b;
     }
     form input[type=text]:focus{
         outline: 0;
@@ -60,12 +75,16 @@
 <body>
     <form method="POST" action="../src/controll/processa.usuario.php" >
         <h3>Perfil comum</h3>
+        <br/>
         <input id="nom" type="text" name="nome" placeholder="Nome..." />
         <input id="tel" type="text" name="telefone" placeholder="Telefone..." />
         <input id="user" type="text" name="login" placeholder="Seu usuário..." />
         <input id="password" type="password" name="senha" placeholder="Sua senha..." />
         <input id="passconfirm" type="password" name="confirma" placeholder="Confirme sua senha..." />
-        <input type="submit" value="Atualizar" />
+        <br/>
+        <br/>
+        <input id="att" type="submit" value="Atualizar" />
+        <input id="sair" type="submit" value="Sair" />
     </form>
     <script>
         var nom = document.getElementById('nom');

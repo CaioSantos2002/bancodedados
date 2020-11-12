@@ -12,9 +12,9 @@
     }
     form{
         background-color: white;
-        max-width: 500px;
-        width: 70%;
-        padding: 20px;
+        max-width: 420px;
+        width: 80%;
+        padding: 80px;
         position: absolute;
         left: 50%;
         top: 50%;
@@ -27,7 +27,7 @@
     }
     form input[type=text],
     form input[type=password]{
-        width: 100%;
+        width: 105%;
         height: 45px;
         border:1px solid #ccc;
         padding-left: 10px;
@@ -35,14 +35,15 @@
     }
 
     form input[type=submit]{
-        width: 100%;
+        width: 105%;
         height: 40px;
         cursor: pointer;
         background-color: #5F7C8A;
         color: white;
         border: 0;
         border-radius: 20px;
-        transition: 1s;
+        transition: 1s;  
+        
     }
 
     form input[type=submit]:hover{
@@ -55,15 +56,33 @@
         outline: 0;
     }
 
+    div{
+        text-align: center;
+        font-family: 'Noto Sans JP', sans-serif;
+        color: #5F7C8A;
+        margin:10px 10px 0;
+        width: 100%;
+    }
+
 </style>
 
 <body>
     <form method="POST" action="../src/controll/processa.usuario.php">
         <h3>Login</h3>
+        <br/>
         <input id="user" type="text" name="login" placeholder="Seu usuário..." required/>
         <input id="password" type="password" name="senha" placeholder="Sua senha..." required/>
+        <br/>
+        <br/>
         <input type="submit" value="Entrar" />
+        <br/>
+        <br/>
+        <div class="msg">
+            <p id="mensagem">Mensagens do Sistema</p>
+        </div>
+        
     </form>
+    
     <script>
         var user = document.getElementById('user');
         var password = document.getElementById('password');
@@ -81,6 +100,13 @@
         password.addEventListener('blur',()=>{
             password.style.borderColor = "#ccc";
         });
+        
+        const msg = document.querySelector("#mensagem");
+const mensagem = location.search.slice(1);
+if (mensagem.split("=")[0] == "erro"){
+    msg.innerHTML = decodeURIComponent(mensagem.split("=")[1]);
+    setTimeout(() => { window.location.href = "?" }, 3000);
+}
     </script>
 </body>
 </html>
