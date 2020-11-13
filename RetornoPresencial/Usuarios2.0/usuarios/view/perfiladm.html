@@ -4,74 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
     <title>ADM</title>
 </head>
-<style>
-        *{margin:0;padding:0;box-sizing: border-box;}
-        body{
-        background-color: #5F7C8A;
-    }
-    form{
-        background-color: white;
-        max-width: 400px;
-        width: 70%;
-        padding: 40px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-    form h3{
-        text-align:center;
-        color: #5F7C8A;
-        font-family: 'Noto Sans JP', sans-serif;
-    }
-    form input[type=text],
-    form input[type=password]{
-        width: 80%;
-        height: 45px;
-        border:1px solid #ccc;
-        padding-left: 10px;
-        margin: 10px 30px;
-    }
-
-    form input[id=att]{
-        width: 60%;
-        height: 30px;
-        cursor: pointer;
-        background-color: #5F7C8A;
-        color: white;
-        border: 0;
-        border-radius: 20px;
-        transition: 1s;
-        float: left;
-    }
-    form input[id=sair]{
-        width: 30%;
-        height: 30px;
-        cursor: pointer;
-        background-color: #d61e17;
-        color: white;
-        border: 0;
-        border-radius: 20px;
-        transition: 1s;
-        float: right;
-    }
-
-    form input[id=att]:hover{
-        background-color: #4A5F6A;
-    }
-    form input[id=sair]:hover{
-        background-color: #b10b0b;
-    }
-    form input[type=text]:focus{
-        outline: 0;
-    }
-    form input[type=password]:focus{
-        outline: 0;
-    }
-
-</style>
 <body onload="carregaPerfil()">
     <form method="POST" action="../src/controll/processa.usuario.php" >
         <h3>Perfil de Administrador</h3>
@@ -86,6 +21,17 @@
         <input id="att" type="submit" value="Atualizar" />
         <input id="sair" type="submit" value="Sair" />
     </form>
+    <div id="lateral">
+        <div id="menu">
+                      
+        <h3 class="link-titulo">Gerencie as tabelas</h3>
+          <ul class="box">					
+            <li><a href="http://localhost/usuarios/view/pessoas.html?">TABELA PESSOAS</a></li>
+            <li><a href="http://localhost/usuarios/view/usuarios.html?">TABELA USUÁRIOS</a></li>
+          </ul>
+        </div> 
+    </div id="link"><div>
+    </div> 
     <script>
         var nom = document.getElementById('nom');
         var tel = document.getElementById('tel');

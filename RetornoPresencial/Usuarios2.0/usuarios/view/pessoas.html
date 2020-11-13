@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabela de Pessoas</title>
-</head>
-<body onload="carregaPessoas()">
-  <div style="display: flex; flex-direction: column; align-items: center;">
-  <table>
-    <thead>
-        <tr>
-            <th colspan="4">Gerenciar Pessoas</th>
-        </tr>
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody id="bodyPessoas">
-    </tbody>
-    <tfoot>
-        <tr>
-            <form>
-                <td>Auto</td>
-                <td><input type="text" placeholder="Nome" name="nome"></td>
-                <td><input type="text" placeholder="Telefone" name="telefone"></td>
-                <td><input type="submit" value="Criar"></td>
-            </form>
-        </tr>
-    </tfoot>
-</table>
-</div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tabela de Pessoas</title>
+	</head>
+	<body onload="carregaPessoas()">
+		<div style="display: flex; flex-direction: column; align-items: center">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="4">Gerenciar Pessoas</th>
+					</tr>
+					<tr>
+						<th>Id</th>
+						<th>Nome</th>
+						<th>Telefone</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody id="bodyPessoas"></tbody>
+				<tfoot>
+					<tr>
+						<form>
+							<td>Auto</td>
+							<td><input type="text" placeholder="Nome" name="nome" /></td>
+							<td>
+								<input type="text" placeholder="Telefone" name="telefone" />
+							</td>
+							<td><input type="submit" value="Criar" /></td>
+						</form>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</body>
 </html>

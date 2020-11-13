@@ -1,112 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<style>
-    *{margin:0;padding:0;box-sizing: border-box;}
-    body{
-        background-color: #5F7C8A;
-    }
-    form{
-        background-color: white;
-        max-width: 420px;
-        width: 80%;
-        padding: 80px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-    form h3{
-        text-align:center;
-        color: #5F7C8A;
-        font-family: 'Noto Sans JP', sans-serif;
-    }
-    form input[type=text],
-    form input[type=password]{
-        width: 105%;
-        height: 45px;
-        border:1px solid #ccc;
-        padding-left: 10px;
-        margin: 10px 0;
-    }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login</title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+            background: url("wallpaper.jpg");
+            background-size: 100%;
+		}
+		form {
+			background-color: white;
+			max-width: 420px;
+			width: 80%;
+			padding: 80px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		form h3 {
+			text-align: center;
+			color: #5f7c8a;
+			font-family: "Noto Sans JP", sans-serif;
+		}
+		form input[type="text"],
+		form input[type="password"] {
+			width: 105%;
+			height: 45px;
+			border: 1px solid #ccc;
+			padding-left: 10px;
+			margin: 10px 0;
+		}
 
-    form input[type=submit]{
-        width: 105%;
-        height: 40px;
-        cursor: pointer;
-        background-color: #5F7C8A;
-        color: white;
-        border: 0;
-        border-radius: 20px;
-        transition: 1s;  
-        
-    }
+		form input[type="submit"] {
+			width: 105%;
+			height: 40px;
+			cursor: pointer;
+			background-color: #5f7c8a;
+			color: white;
+			border: 0;
+			border-radius: 20px;
+			transition: 1s;
+		}
 
-    form input[type=submit]:hover{
-        background-color: #4A5F6A;
-    }
-    form input[type=text]:focus{
-        outline: 0;
-    }
-    form input[type=password]:focus{
-        outline: 0;
-    }
+		form input[type="submit"]:hover {
+			background-color: #4a5f6a;
+		}
+		form input[type="text"]:focus {
+			outline: 0;
+		}
+		form input[type="password"]:focus {
+			outline: 0;
+		}
 
-    div{
-        text-align: center;
-        font-family: 'Noto Sans JP', sans-serif;
-        color: #5F7C8A;
-        margin:10px 10px 0;
-        width: 100%;
-    }
+		div {
+			text-align: center;
+			font-family: "Noto Sans JP", sans-serif;
+			color: #5f7c8a;
+			margin: 10px 10px 0;
+			width: 100%;
+		}
+	</style>
 
-</style>
+	<body>
+		<form method="POST" action="../src/controll/processa.usuario.php">
+			<h3>Login</h3>
+			<br />
+			<input
+				id="user"
+				type="text"
+				name="login"
+				placeholder="Seu usuário..."
+				required
+			/>
+			<input
+				id="password"
+				type="password"
+				name="senha"
+				placeholder="Sua senha..."
+				required
+			/>
+			<br />
+			<br />
+			<input type="submit" value="Entrar" />
+			<br />
+			<br />
+			<div class="msg">
+				<p id="mensagem">Mensagens do Sistema</p>
+			</div>
+		</form>
 
-<body>
-    <form method="POST" action="../src/controll/processa.usuario.php">
-        <h3>Login</h3>
-        <br/>
-        <input id="user" type="text" name="login" placeholder="Seu usuário..." required/>
-        <input id="password" type="password" name="senha" placeholder="Sua senha..." required/>
-        <br/>
-        <br/>
-        <input type="submit" value="Entrar" />
-        <br/>
-        <br/>
-        <div class="msg">
-            <p id="mensagem">Mensagens do Sistema</p>
-        </div>
-        
-    </form>
-    
-    <script>
-        var user = document.getElementById('user');
-        var password = document.getElementById('password');
-        
-        user.addEventListener('focus',()=>{
-            user.style.borderColor = "#4A5F6A";
-        });
-        user.addEventListener('blur',()=>{
-            user.style.borderColor = "#ccc";
-        });
+		<script>
+			var user = document.getElementById("user");
+			var password = document.getElementById("password");
 
-        password.addEventListener('focus',()=>{
-            password.style.borderColor = "#4A5F6A";
-        });
-        password.addEventListener('blur',()=>{
-            password.style.borderColor = "#ccc";
-        });
-        
-        const msg = document.querySelector("#mensagem");
-const mensagem = location.search.slice(1);
-if (mensagem.split("=")[0] == "erro"){
-    msg.innerHTML = decodeURIComponent(mensagem.split("=")[1]);
-    setTimeout(() => { window.location.href = "?" }, 3000);
-}
-    </script>
-</body>
+			user.addEventListener("focus", () => {
+				user.style.borderColor = "#4A5F6A";
+			});
+			user.addEventListener("blur", () => {
+				user.style.borderColor = "#ccc";
+			});
+
+			password.addEventListener("focus", () => {
+				password.style.borderColor = "#4A5F6A";
+			});
+			password.addEventListener("blur", () => {
+				password.style.borderColor = "#ccc";
+			});
+
+			const msg = document.querySelector("#mensagem");
+			const mensagem = location.search.slice(1);
+			if (mensagem.split("=")[0] == "erro") {
+				msg.innerHTML = decodeURIComponent(mensagem.split("=")[1]);
+				setTimeout(() => {
+					window.location.href = "?";
+				}, 3000);
+			}
+		</script>
+	</body>
 </html>
