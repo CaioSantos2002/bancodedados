@@ -13,10 +13,11 @@ create table telefones(
     constraint fk_tel_pess
     foreign key (id_pessoa)
     references pessoas(id_pessoa)
+    on delete cascade
 );
 create table usuarios(
     id_pessoa integer not null,
-    login varchar(10) not null,
+    login varchar(12) not null,
     senha varchar(50) not null,
     tipo varchar (15) not null,
     constraint fk_possui

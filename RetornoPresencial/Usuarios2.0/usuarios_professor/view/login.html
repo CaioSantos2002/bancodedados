@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<style>* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #5f7c8a;
+	overflow: hidden;
+}
+table {
+	background-color: white;
+	max-width: 420px;
+	width: 80%;
+	padding: 80px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	
+}
+
+th {
+	text-align: center;
+	color: #5f7c8a;
+	font-family: "Noto Sans JP", sans-serif;
+}
+
+td input[type="text"],
+td input[type="password"] {
+	width: 105%;
+	height: 45px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	margin: 10px 0;
+	margin-top: 20px;
+}
+
+td [type="button"] {
+	width: 105%;
+	height: 40px;
+	cursor: pointer;
+	background-color: #5f7c8a;
+	color: white;
+	border: 0;
+	border-radius: 20px;
+	transition: 1s;
+}
+
+
+td input[type="button"]:hover {
+	background-color: #4a5f6a;
+}
+
+
+.msg{
+	text-align: center;
+	font-family: "Noto Sans JP", sans-serif;
+	color: white;
+	margin: 10px 10px 0;
+	width: 100%;
+	z-index:3;
+	margin-top: 700px;
+}
+</style>
+
+<body>
+    <div class="quadro1">
+        <table>
+            <thead>
+                <tr>
+                    <th>Login</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" placeholder="Seu usuário..." id="login"/></td>
+                </tr>
+                
+                <tr>
+                    <td><input type="password" placeholder="Sua senha..." id="senha"/></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="Acessar" onclick="acessar()" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="msg">
+            <p id="mensagem">Mensagens do Sistema</p>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+
+</html>
