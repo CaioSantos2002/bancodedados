@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 		<title>Perfil</title>
 	</head>
 	<style>
@@ -12,26 +13,28 @@
 			box-sizing: border-box;
 		}
 		body {
-			background: url("wallpaper.jpg");
-            background-size: 100%;
+			background-color: #5f7c8a;
 		}
-		form {
+		table {
 			background-color: white;
-			max-width: 400px;
-			width: 70%;
-			padding: 40px;
+			max-width: 600px;
+			width: 100%;
+			padding: 80px;
 			position: absolute;
 			left: 50%;
 			top: 50%;
 			transform: translate(-50%, -50%);
+			
 		}
-		form h3 {
+		th {
 			text-align: center;
 			color: #5f7c8a;
 			font-family: "Noto Sans JP", sans-serif;
+			font-size: 18px;
+
 		}
-		form input[type="text"],
-		form input[type="password"] {
+		td input[type="text"],
+		td input[type="password"] {
 			width: 80%;
 			height: 45px;
 			border: 1px solid #ccc;
@@ -39,8 +42,8 @@
 			margin: 10px 30px;
 		}
 
-		form input[id="att"] {
-			width: 60%;
+		td input[id="att"] {
+			width: 50%;
 			height: 30px;
 			cursor: pointer;
 			background-color: #5f7c8a;
@@ -50,8 +53,8 @@
 			transition: 1s;
 			float: left;
 		}
-		form input[id="sair"] {
-			width: 30%;
+		td input[id="sair"] {
+			width: 40%;
 			height: 30px;
 			cursor: pointer;
 			background-color: #d61e17;
@@ -62,81 +65,65 @@
 			float: right;
 		}
 
-		form input[id="att"]:hover {
+		td input[id="att"]:hover {
 			background-color: #4a5f6a;
 		}
-		form input[id="sair"]:hover {
+		td input[id="sair"]:hover {
 			background-color: #b10b0b;
 		}
-		form input[type="text"]:focus {
-			outline: 0;
+		
+
+
+		.msg {
+			font-size: 17px;
+			text-align: center;
+			font-family: "Noto Sans JP", sans-serif;
+			color: black;
+			margin: 10px 10px 0;
+			width: 100%;
+			margin-top: 600px;
+			z-index: 2;
 		}
-		form input[type="password"]:focus {
-			outline: 0;
-		}
+
+	
 	</style>
-	<body>
-		<form method="POST" action="../src/controll/processa.usuario.php">
-			<h3>Perfil comum</h3>
-			<br />
-			<input id="nom" type="text" name="nome" placeholder="Nome..." />
-			<input id="tel" type="text" name="telefone" placeholder="Telefone..." />
-			<input id="user" type="text" name="login" placeholder="Seu usuário..." />
-			<input
-				id="password"
-				type="password"
-				name="senha"
-				placeholder="Sua senha..."
-			/>
-			<input
-				id="passconfirm"
-				type="password"
-				name="confirma"
-				placeholder="Confirme sua senha..."
-			/>
-			<br />
-			<br />
-			<input id="att" type="submit" value="Atualizar" />
-			<input id="sair" type="submit" value="Sair" />
-		</form>
-		<script>
-			var nom = document.getElementById("nom");
-			var tel = document.getElementById("tel");
-			var user = document.getElementById("user");
-			var password = document.getElementById("password");
-			var passconfirm = document.getElementById("passconfirm");
 
-			nom.addEventListener("focus", () => {
-				nom.style.borderColor = "#4A5F6A";
-			});
-			nom.addEventListener("blur", () => {
-				nom.style.borderColor = "#ccc";
-			});
-
-			tel.addEventListener("focus", () => {
-				tel.style.borderColor = "#4A5F6A";
-			});
-			tel.addEventListener("blur", () => {
-				tel.style.borderColor = "#ccc";
-			});
-			user.addEventListener("focus", () => {
-				user.style.borderColor = "#4A5F6A";
-			});
-			user.addEventListener("blur", () => {
-				user.style.borderColor = "#ccc";
-			});
-			password.addEventListener("focus", () => {
-				password.style.borderColor = "#4A5F6A";
-			});
-			password.addEventListener("blur", () => {
-				password.style.borderColor = "#ccc";
-			});
-			passconfirm.addEventListener("focus", () => {
-				passconfirm.style.borderColor = "#4A5F6A";
-			});
-			passconfirm.addEventListener("blur", () => {
-				passconfirm.style.borderColor = "#ccc";
-			});
-		</script>
+	<body onload="carregaPerfil()">
+		<div class="quadro1">
+			<table>
+				<thead>
+					<tr>
+						<th>Perfil do usuário</th>
+					</tr>
+				</thead>
+                <tbody>
+                    <tr>
+                        <td align="center"><input type="text" id="nome" size="50" placeholder="Nomes: "/></td>
+                    </tr>
+                    <tr>
+                        <td align="center" id="telefones" placeholder="Telefones: " ></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="text" id="login" readonly /></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="password" id="senha" placeholder="Senha: "/></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><input type="password" id="csenha" placeholder="Confirme a senha: " /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <input id="att" type="button" value="Atualizar" onclick="atualizaPerfil('comum')" />
+                            <input id="sair" type="button" value="Sair" onclick="sair()" />
+                        </td>
+                    </tr>
+                </tbody>
+			</table>
+			<div class="msg">
+				<p id="mensagem">Mensagens do Sistema</p>
+			</div>
+		</div>
+		<script src="perfiladm.js"></script>
 	</body>
 </html>

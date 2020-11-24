@@ -11,65 +11,19 @@
     <form method="POST" action="../src/controll/processa.usuario.php" >
         <h3>Perfil de Administrador</h3>
         <br/>
-        <input id="nom" type="text" name="nome" placeholder="Nome..." />
-        <input id="tel" type="text" name="telefone" placeholder="Telefone..." />
-        <input id="user" type="text" name="login" placeholder="Seu usuário..." />
-        <input id="password" type="password" name="senha" placeholder="Sua senha..." />
-        <input id="passconfirm" type="password" name="confirma" placeholder="Confirme sua senha..." />
+        <input id="nome" type="text" name="nome" placeholder="Nome..." />
+        <input id="telefones" type="text" name="telefone" placeholder="Telefone..." />
+        <input id="login" type="text" name="login" placeholder="Seu usuário..." />
+        <input id="senha" type="password" name="senha" placeholder="Sua senha..." />
+        <input id="csenha" type="password" name="confirma" placeholder="Confirme sua senha..." />
         <br/>
         <br/>
-        <input id="att" type="submit" value="Atualizar" />
-        <input id="sair" type="submit" value="Sair" />
+        <input id="att" type="button" value="Atualizar" onclick="atualizaPerfil('adm')"/>
+        <input  type="button" value="Sair" onclick="sair()"/>
+        <div class="msg">
+            <p id="mensagem">Mensagens do Sistema</p>
+        </div>
     </form>
-    <div id="lateral">
-        <div id="menu">
-                      
-        <h3 class="link-titulo">Gerencie as tabelas</h3>
-          <ul class="box">					
-            <li><a href="http://localhost/usuarios/view/pessoas.html?">TABELA PESSOAS</a></li>
-            <li><a href="http://localhost/usuarios/view/usuarios.html?">TABELA USUÁRIOS</a></li>
-          </ul>
-        </div> 
-    </div id="link"><div>
-    </div> 
-    <script>
-        var nom = document.getElementById('nom');
-        var tel = document.getElementById('tel');
-        var user = document.getElementById('user');
-        var password = document.getElementById('password');
-        var passconfirm = document.getElementById('passconfirm');
-        
-        nom.addEventListener('focus',()=>{
-            nom.style.borderColor = "#4A5F6A";
-        });
-        nom.addEventListener('blur',()=>{
-            nom.style.borderColor = "#ccc";
-        });
-
-        tel.addEventListener('focus',()=>{
-            tel.style.borderColor = "#4A5F6A";
-        });
-        tel.addEventListener('blur',()=>{
-            tel.style.borderColor = "#ccc";
-        });
-        user.addEventListener('focus',()=>{
-            user.style.borderColor = "#4A5F6A";
-        });
-        user.addEventListener('blur',()=>{
-            user.style.borderColor = "#ccc";
-        });
-        password.addEventListener('focus',()=>{
-            password.style.borderColor = "#4A5F6A";
-        });
-        password.addEventListener('blur',()=>{
-            password.style.borderColor = "#ccc";
-        });
-        passconfirm.addEventListener('focus',()=>{
-            passconfirm.style.borderColor = "#4A5F6A";
-        });
-        passconfirm.addEventListener('blur',()=>{
-            passconfirm.style.borderColor = "#ccc";
-        });
-    </script>
+    <script src="perfiladm.js"></script>
 </body>
 </html>

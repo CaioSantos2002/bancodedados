@@ -1,0 +1,76 @@
+body {
+    background-color: #5f7c8a;
+}
+input {
+	border: #ccc 1px solid;
+	padding: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+select {
+	border: #ccc 1px solid;
+	border-radius: 4px;
+	padding: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666;
+	font-size: 12px;
+	text-shadow: 1px 1px 0px #fff;
+	background: #eaebec;
+	margin: 5px auto;
+	border: #ccc 1px solid;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+}
+
+tr {
+	text-align: center;
+	padding-left: 20px;
+}
+
+td {
+	padding: 10px;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+
+	background: white;
+	
+}
+
+th {
+	padding: 20px;
+	border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    font-size: 15px;
+    color: #5f7c8a;
+	background:white;
+	font-weight: bold;
+}
+
+td input[type="submit"]{
+    background-color: #5f7c8a;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+td input[type="text"],
+td input[type="password"],
+td input[type="number"]{
+    outline: 0;
+}
+

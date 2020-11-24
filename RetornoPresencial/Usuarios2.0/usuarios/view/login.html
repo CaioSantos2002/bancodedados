@@ -12,8 +12,7 @@
 			box-sizing: border-box;
 		}
 		body {
-            background: url("wallpaper.jpg");
-            background-size: 100%;
+			background-color: #5f7c8a;
 		}
 		form {
 			background-color: white;
@@ -39,7 +38,7 @@
 			margin: 10px 0;
 		}
 
-		form input[type="submit"] {
+		form input[type="button"] {
 			width: 105%;
 			height: 40px;
 			cursor: pointer;
@@ -50,7 +49,7 @@
 			transition: 1s;
 		}
 
-		form input[type="submit"]:hover {
+		form input[type="button"]:hover {
 			background-color: #4a5f6a;
 		}
 		form input[type="text"]:focus {
@@ -74,55 +73,25 @@
 			<h3>Login</h3>
 			<br />
 			<input
-				id="user"
+				id="login"
 				type="text"
-				name="login"
 				placeholder="Seu usuário..."
-				required
+				
 			/>
 			<input
-				id="password"
+				id="senha"
 				type="password"
-				name="senha"
 				placeholder="Sua senha..."
-				required
 			/>
 			<br />
 			<br />
-			<input type="submit" value="Entrar" />
+			<input type="button" value="Entrar" onclick="acessar()" /></td>
 			<br />
 			<br />
 			<div class="msg">
 				<p id="mensagem">Mensagens do Sistema</p>
 			</div>
 		</form>
-
-		<script>
-			var user = document.getElementById("user");
-			var password = document.getElementById("password");
-
-			user.addEventListener("focus", () => {
-				user.style.borderColor = "#4A5F6A";
-			});
-			user.addEventListener("blur", () => {
-				user.style.borderColor = "#ccc";
-			});
-
-			password.addEventListener("focus", () => {
-				password.style.borderColor = "#4A5F6A";
-			});
-			password.addEventListener("blur", () => {
-				password.style.borderColor = "#ccc";
-			});
-
-			const msg = document.querySelector("#mensagem");
-			const mensagem = location.search.slice(1);
-			if (mensagem.split("=")[0] == "erro") {
-				msg.innerHTML = decodeURIComponent(mensagem.split("=")[1]);
-				setTimeout(() => {
-					window.location.href = "?";
-				}, 3000);
-			}
-		</script>
+		<script src="login.js"></script>
 	</body>
-</html>
+	</html>

@@ -3,45 +3,66 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="perfil_css.css">
-		<title>Perfil</title>
+		<link rel="stylesheet" href="perfil_css.css" />
+		<title>Perfil de administrador</title>
 	</head>
 	<body onload="carregaPerfil()">
+		<input type="checkbox" id="check" />
+		<label id="icone" for="check"><img src="icone.png" /></label>
+		<div class="barra">
+			<nav>
+				<a href="pessoas.html"><div class="link">Tabela pessoas</div></a>
+				<a href="usuarios.html"><div class="link">Tabela Usuários</div></a>
+			</nav>
+		</div>
 		<div class="quadro1">
 			<table>
 				<thead>
 					<tr>
-						<th>Perfil do usuário</th>
+						<th>Perfil do Administrador</th>
 					</tr>
 				</thead>
-                <tbody>
-                    <tr>
-                        <td align="center"><input type="text" id="nome" size="50" placeholder="Nomes: "/></td>
-                    </tr>
-                    <tr>
-                        <td align="left" id="telefones" >Telefones:</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><input type="text" id="login" readonly /></td>
-                    </tr>
-                    <tr>
-                        <td align="center"><input type="password" id="senha" placeholder="Senha: "/></td>
-                    </tr>
-                    <tr>
-                        <td align="center"><input type="password" id="csenha" placeholder="Confirme a senha: " /></td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            <input id="att" type="button" value="Atualizar" onclick="atualizaPerfil('comum')" />
-                            <input id="sair" type="button" value="Sair" onclick="sair()" />
-                        </td>
-                    </tr>
-                </tbody>
+				<tbody>
+					<tr>
+						<td align="center">
+							<input type="text" id="nome" size="50" placeholder="Nomes: " />
+						</td>
+					</tr>
+					<tr>
+						<td align="left" id="telefones">Telefones:</td>
+					</tr>
+					<tr>
+						<td align="center"><input type="text" id="login" readonly /></td>
+					</tr>
+					<tr>
+						<td align="center">
+							<input type="password" id="senha" placeholder="Senha: " />
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<input
+								type="password"
+								id="csenha"
+								placeholder="Confirme a senha: "
+							/>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<input
+								id="att"
+								type="button"
+								value="Atualizar"
+								onclick="atualizaPerfil('comum')"
+							/>
+							<input id="sair" type="button" value="Sair" onclick="sair()" />
+						</td>
+					</tr>
+				</tbody>
 			</table>
-			<div class="msg">
-				<p id="mensagem">Mensagens do Sistema</p>
-			</div>
 		</div>
+
 		<script src="perfiladm.js"></script>
 	</body>
 </html>
