@@ -1,8 +1,8 @@
 <?php
 require("conexao.php"); //Importa a classe Conexao que utiliza o objeto PDO
 
-//Model ou Domain sao a mesma camada, apenas nomes diferentes
-//Normalmente a classe DAO também faz parte da camada Model no padrao MVC
+//Model ou Domain são a mesma camada, apenas nomes diferentes
+//Normalmente a classe DAO também faz parte da camada Model no padrão MVC
 
 class Usuario
 { //Classe modelo
@@ -60,12 +60,14 @@ class UsuarioDAO
 		$tipo = $usuario->getTipo();
 		$query = "INSERT INTO usuarios VALUES ($id,'$login',md5('$senha'),'$tipo')";
 		try { //Tenta conectar ao BD e executar a query
-			$con = new Conexao(); //Inicia a conexao
+			$con = new Conexao(); //Inicia a conexão
 			if (Conexao::getInstancia()->exec($query) >= 1) { //O método exec de PDO retorna 0 = fracasso, 1 = sucesso, 2 = sucesso parcial
 				$resultado = $usuario;
+			} else {
+				$resultado["erro"] = "Erro criar usuário";
 			}
-			$con = null; //Fecha a conexao
-		} catch (PDOException $e) { //Caso tenha problemas com a conexao retorna o erro abaixo
+			$con = null; //Fecha a conexão
+		} catch (PDOException $e) { //Caso tenha problemas com a conexão retorna o erro abaixo
 			$resultado["erro"] = "Erro ao conectar ao BD";
 		}
 		return $resultado;
@@ -87,7 +89,7 @@ class UsuarioDAO
 			}
 			$con = null;
 		} catch (PDOException $e) {
-			$usuarios["erro"] = "Erro de conexao com BD";
+			$usuarios["erro"] = "Erro ao conectar ao BD";
 		}
 		return $usuarios;
 	}
@@ -108,7 +110,7 @@ class UsuarioDAO
 			}
 			$con = null;
 		} catch (PDOException $e) {
-			$usuarios["erro"] = "Erro de conexao com BD";
+			$usuarios["erro"] = "Erro ao conectar ao BD";
 		}
 		return $usuarios;
 	}
@@ -129,7 +131,7 @@ class UsuarioDAO
 			}
 			$con = null;
 		} catch (PDOException $e) {
-			$usuarios["erro"] = "Erro de conexao com BD";
+			$usuarios["erro"] = "Erro ao conectar ao BD";
 		}
 		return $usuarios;
 	}
@@ -139,7 +141,11 @@ class UsuarioDAO
 		$login = $usuario->getLogin(); //Configura os parâmetros para montar a query
 		$senha = $usuario->getSenha(); //Configura os parâmetros para montar a query
 		$tipo = $usuario->getTipo(); //Configura os parâmetros para montar a query
-		$query = "UPDATE usuarios SET senha = md5('$senha'), tipo = '$tipo' WHERE login = '$login'";
+		$query = "UPDATE usuarios SET tipo = '$tipo'";
+		if ($senha != "") {
+			$query .= ", senha = md5('$senha') ";
+		}
+		$query .= " WHERE login = '$login'";
 		try {
 			$con = new Conexao();
 			$status = Conexao::getInstancia()->prepare($query); //O método prepare retorna um status se a query estiver correta
@@ -148,7 +154,7 @@ class UsuarioDAO
 			}
 			$con = null;
 		} catch (PDOException $e) {
-			$resultado["erro"] = "Erro de conexao com o BD";
+			$resultado["erro"] = "Erro ao conectar ao BD";
 		}
 		return $resultado;
 	}
@@ -163,7 +169,7 @@ class UsuarioDAO
 			}
 			$con = null;
 		} catch (PDOException $e) {
-			$resultado["erro"] = "Erro de conexao com o BD";
+			$resultado["erro"] = "Erro ao conectar ao BD";
 		}
 		return $resultado;
 	}
@@ -175,23 +181,22 @@ class UsuarioDAO
 			$con = new Conexao();
 			$resultSet = Conexao::getInstancia()->query($query);
 			if ($resultSet->fetchObject()) {
-				$query = "SELECT * FROM usuarios WHERE login = '$login' AND senha = md5('$senha')";
+				$query = "SELECT id_pessoa, login, tipo FROM usuarios WHERE login = '$login' AND senha = md5('$senha')";
 				$resultSet = Conexao::getInstancia()->query($query);
 				if ($dados = $resultSet->fetchObject()) {
 					$usuario = new Usuario();
 					$usuario->setIdPessoa($dados->id_pessoa);
 					$usuario->setLogin($dados->login);
-					$usuario->setSenha($dados->senha);
 					$usuario->setTipo($dados->tipo);
 				} else {
-					$usuario["erro"] = "A senha informada nao confere";
+					$usuario["erro"] = "A senha informada não confere";
 				}
 			} else {
-				$usuario["erro"] = "Login nao encontrado";
+				$usuario["erro"] = "Login não encontrado";
 			}
 			$con = null;
 		} catch (PDOException $e) {
-			$usuario["erro"] = "Erro de conexao com o BD";
+			$usuario["erro"] = "Erro ao conectar ao BD";
 		}
 		return $usuario;
 	}

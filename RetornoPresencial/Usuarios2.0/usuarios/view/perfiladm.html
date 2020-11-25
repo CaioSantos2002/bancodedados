@@ -1,29 +1,56 @@
-  
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
-    <title>ADM</title>
-</head>
-<body onload="carregaPerfil()">
-    <form method="POST" action="../src/controll/processa.usuario.php" >
-        <h3>Perfil de Administrador</h3>
-        <br/>
-        <input id="nome" type="text" name="nome" placeholder="Nome..." />
-        <input id="telefones" type="text" name="telefone" placeholder="Telefone..." />
-        <input id="login" type="text" name="login" placeholder="Seu usuário..." />
-        <input id="senha" type="password" name="senha" placeholder="Sua senha..." />
-        <input id="csenha" type="password" name="confirma" placeholder="Confirme sua senha..." />
-        <br/>
-        <br/>
-        <input id="att" type="button" value="Atualizar" onclick="atualizaPerfil('adm')"/>
-        <input  type="button" value="Sair" onclick="sair()"/>
-        <div class="msg">
-            <p id="mensagem">Mensagens do Sistema</p>
-        </div>
-    </form>
-    <script src="perfiladm.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="estilo.css" />
+		<title>ADM</title>
+	</head>
+	<body onload="carregaPerfil()">
+		<input type="checkbox" id="check" />
+		<label id="icone" for="check"><img src="icone.png" /></label>
+		<div class="barra">
+			<nav>
+				<a href="pessoas.html"><div class="link">Tabela pessoas</div></a>
+				<a href="usuarios.html"><div class="link">Tabela Usuários</div></a>
+			</nav>
+		</div>
+		<form>
+			<h3>Perfil de Administrador</h3>
+			<br />
+			<input id="nome" type="text" name="nome" placeholder="Nome..." />
+			<input
+				id="telefones"
+				type="text"
+				name="telefone"
+				placeholder="Telefone..."
+			/>
+			<input id="login" type="text" name="login" placeholder="Seu usuário..." />
+			<input
+				id="senha"
+				type="password"
+				name="senha"
+				placeholder="Sua senha..."
+			/>
+			<input
+				id="csenha"
+				type="password"
+				name="confirma"
+				placeholder="Confirme sua senha..."
+			/>
+			<br />
+			<br />
+			<input
+				id="att"
+				type="button"
+				value="Atualizar"
+				onclick="atualizaPerfil('adm')"
+			/>
+			<input id="sair" type="button" value="Sair" onclick="sair()" />
+			<div class="msg">
+				<p id="mensagem">Mensagens do Sistema</p>
+			</div>
+		</form>
+		<script src="perfiladm.js"></script>
+	</body>
 </html>
