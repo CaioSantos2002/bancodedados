@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+		
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+	</head>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#menu-h{
+    background-color: rgb(37, 37, 39);
+}
+
+#menu-h ul {
+    max-width: 800px;
+    list-style: none;
+    padding: 0;
+}
+
+#menu-h ul li {
+    display: inline;
+}
+
+#menu-h li{
+	font-size: 30px;
+	outline: 0;
+	color: white;
+}
+
+#tabela{
+	margin-top:20px;
+}
+input{
+	margin-left: 10px;
+	height: 25px;
+	width: 100px;
+}
+
+::-webkit-input-placeholder{
+	text-align: center;
+}
+button{
+	height: 30px;
+	width: 50px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+		</style>
+	<body>
+		<nav id="menu-h">
+			<ul>
+				<center><li>NOTA FISCAL</li></center>
+			</nav>
+			<table id="tabela">
+				<tr>
+					<td>Itens: <input type="text" placeholder="Descrição" id="desc"></td>
+					<td><input type="text" placeholder="Quantidade" id="qtd"></td>
+					<td><input type="text" placeholder="Preço" id="preco"></td>
+					<td><button>Add</button></td>
+				</tr>
+			</table>
+	</body>
+		
+</html>
