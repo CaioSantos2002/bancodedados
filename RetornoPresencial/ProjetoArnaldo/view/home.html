@@ -36,7 +36,7 @@
 	color: white;
 }
 
-#tabela{
+#tabela1{
 	margin-top:20px;
 }
 input{
@@ -53,21 +53,89 @@ button{
 	width: 50px;
 	margin-left: 5px;
 	cursor: pointer;
+	
 }
+#tabela2{
+	margin-top: 10px;
+	width: 800px;
+}
+
+.semBorda{
+	border: none;
+	text-align: center;
+}
+
+.destino{
+	text-align: center;
+	padding: 10px;
+}
+.data{
+	text-align: center;
+	padding: 10px;
+}
+
+#tabelaProdutos{
+	width:800px;
+}
+.produtos{
+	padding-top: 3px;
+	border: none;
+}
+#tabelaInforma{
+	width:800px;
+}
+.center{
+	text-align: center;
+	border: none;
+	
+}
+.left{
+	text-align: left;
+	border: none;
+}
+.right{
+	text-align: right;
+	border: none;
+}
+
+
+
+
 		</style>
 	<body>
 		<nav id="menu-h">
 			<ul>
 				<center><li>NOTA FISCAL</li></center>
 			</nav>
-			<table id="tabela">
+			<table id="tabela1">
 				<tr>
 					<td>Itens: <input type="text" placeholder="Descrição" id="desc"></td>
-					<td><input type="text" placeholder="Quantidade" id="qtd"></td>
+					<td><input type="number" placeholder="Quantidade" id="qtd"></td>
 					<td><input type="text" placeholder="Preço" id="preco"></td>
 					<td><button>Add</button></td>
 				</tr>
 			</table>
+			<table border="1" cellpadding="2" id="tabela2">
+				<tr>
+				<td rowspan="2" class="semBorda">Dados da empresa</td>
+				<td class="destino">Dados do destinatário</td>
+				</tr>
+				<tr>
+					<td class="data">Data e local</td>
+				</tr>
+			</table>
+			<table border="1" id="tabelaProdutos">
+				<tr>
+				<td class="produtos">Dados dos produtos</td>
+				</tr>
+			</table>
+			<table border="1" id="tabelaInforma">
+				<tr>
+				<td class="left"><b>Descrição</b></td>
+					<td class="center"><b>Qtd</b></td>
+					<td class="center"><b>Preço</b></td>
+					<td class="right"><b>Subtotal</b></td>
+				</tr>
+			</table>
 	</body>
-		
 </html>
